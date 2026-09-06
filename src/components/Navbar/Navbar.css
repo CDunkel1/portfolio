@@ -1,0 +1,134 @@
+
+/*-------------------------------------------------
+Navbar Styles
+------------------------------------------------ */
+
+.hero-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 8%;
+  width: 100%;
+  box-sizing: border-box;
+  
+  /* 🌌 THE FIX: Float the navbar over the content beneath it */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100; /* Ensures it stays stacked on top of your hero text and graphics */
+  background: transparent;
+}
+
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+/* Wrapper linking pages and social layout together */
+.nav-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #cccccc;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 0.95rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* Clean, crisp SVGs handled via native text font mechanics */
+.nav-socials {
+  margin-left: 35px;
+  display: flex;
+  gap: 18px;
+  font-size: 1.2rem;
+}
+
+.nav-socials a {
+  color: #ffffff;
+  transition: transform 0.2s, opacity 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.nav-socials a:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+/* Hidden by default on large desktop breakpoints */
+.nav-menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 101; /* Stays fixed cleanly on top of mobile layouts */
+}
+
+/* Responsive Media Queries (Mobile & Small Viewports) */
+@media (max-width: 768px) {
+  .nav-menu-icon {
+    display: block;
+  }
+
+  /* Morphing desktop layout wrapper into a slide-down layout block */
+  .nav-container {
+    position: absolute;
+    top: -400px; /* Hidden above view by default */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 0;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Triggers view smoothly via our active React state dynamic class hook */
+  .nav-container.active {
+    top: 90px; /* Fits directly beneath logo padding header */
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    font-size: 1.2rem;
+  }
+
+  .nav-socials {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+.hero-nav {
+  background: transparent; /* Makes navbar float perfectly over global gradient */
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    /* Uses a matching dark blur overlay for your mobile slide-down menu */
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+  }
+}
+
