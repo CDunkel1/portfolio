@@ -71,7 +71,7 @@ function About() {
             <div className="pillar-item">
               <FaGraduationCap className="pillar-icon" />
               <div>
-                <h4>Information Systems</h4>
+                <h4>Bachelor's Degree in Information Systems</h4>
                 <p>Structured database theory & platform logistics</p>
               </div>
             </div>
