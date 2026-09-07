@@ -12,8 +12,7 @@ function Hero() {
           <p className="hero-greeting">Hi, I'm Cheralyn,</p>
           <h1 className="hero-title">I'M A<br />DEVELOPER</h1>
           <p className="hero-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc 
-            vulputate libero et velit interdum, ac aliquet odio mattis.
+            Responsive By Nature, Creative by Code
           </p>
           <a href="#projects" className="hero-link">View My Projects</a>
         </div>
