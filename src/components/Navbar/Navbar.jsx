@@ -29,8 +29,8 @@ function Navbar() {
 
         {/* Scalable Social SVG Icons */}
         <div className="nav-socials">
-          <a href="https://github.com" target="_blank" rel="noreferrer"><FaGithub /></a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+          <a href="https://github.com/CDunkel1" target="_blank" rel="noreferrer"><FaGithub /></a>
+          <a href="www.linkedin.com/in/cheralyn-dunkel-b27b93171" target="_blank" rel="noreferrer"><FaLinkedin /></a>
         </div>
       </div>
     </nav>
