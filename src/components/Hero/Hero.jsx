@@ -10,7 +10,7 @@ function Hero() {
         {/* Left column: Text Content */}
         <div className="hero-text-side">
           <p className="hero-greeting">Hi, I'm Cheralyn,</p>
-          <h1 className="hero-title">I'M A<br />DEVELOPER</h1>
+          <h1 className="hero-title">FRONTEND<br />DEVELOPER</h1>
           <p className="hero-description">
             Responsive By Nature, Creative by Code
           </p>
