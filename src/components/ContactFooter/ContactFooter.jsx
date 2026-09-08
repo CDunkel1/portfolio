@@ -51,35 +51,30 @@ function ContactFooter() {
 
         {/* Right Side: Clean Form Workspace Container */}
         <div className="footer-form-side">
-          <form className="contact-form-card" onSubmit={handleSubmit}>
-            <h3>Send a Message</h3>
-            
-            <div className="form-group">
-              <label htmlFor="name">Your Name</label>
-              <input 
-                type="text" id="name" name="name" required 
-                value={formData.name} onChange={handleChange} placeholder="Cheralyn" 
-              />
-            </div>
+         <form className="contact-form-card" method="POST" data-netlify="true" name="portfolio-contact">
+  {/* 🚀 Netlify requires this hidden input field to identify your React form during compilation */}
+  <input type="hidden" name="form-name" value="portfolio-contact" />
 
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input 
-                type="email" id="email" name="email" required 
-                value={formData.email} onChange={handleChange} placeholder="name@example.com" 
-              />
-            </div>
+  <h3>Send a Message</h3>
+  
+  <div className="form-group">
+    <label htmlFor="name">Your Name</label>
+    <input type="text" id="name" name="name" required placeholder="Cheralyn" />
+  </div>
 
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea 
-                id="message" name="message" rows="5" required 
-                value={formData.message} onChange={handleChange} placeholder="Tell me about your project specifications..."
-              ></textarea>
-            </div>
+  <div className="form-group">
+    <label htmlFor="email">Email Address</label>
+    <input type="email" id="email" name="email" required placeholder="name@example.com" />
+  </div>
 
-            <button type="submit" className="submit-form-btn">Send Message</button>
-          </form>
+  <div className="form-group">
+    <label htmlFor="message">Message</label>
+    <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+  </div>
+
+  <button type="submit" className="submit-form-btn">Send Message</button>
+</form>
+
         </div>
 
       </div>

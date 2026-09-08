@@ -21,7 +21,16 @@ function Navbar() {
       {/* Navigation Overlay Links */}
       <div className={`nav-container ${isMenuOpen ? 'active' : ''}`}>
         <div className="nav-links">
-          <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>
+         <a 
+          href="#home" 
+          onClick={(e) => {
+          e.preventDefault(); // Stop default anchor jumping behavior
+          setIsMenuOpen(false); // Shut mobile menu slider drawer
+          window.scrollTo({ top: 0, behavior: 'smooth' }); // 🚀 Direct browser velocity command
+          }}
+         >
+          Home
+        </a>
           <a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
           <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
           <a href="#contacts" onClick={() => setIsMenuOpen(false)}>Contact</a>

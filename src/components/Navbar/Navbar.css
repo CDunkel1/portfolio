@@ -7,17 +7,25 @@ Navbar Styles
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 8%;
+  padding: 20px 8%; /* Adjusted padding slightly for a tighter, sleeker scroll profile */
   width: 100%;
   box-sizing: border-box;
   
-  /* 🌌 THE FIX: Float the navbar over the content beneath it */
-  position: absolute;
+  /* 🔄 THE FIXED STICKY FIX */
+  position: fixed; /* Pins the layout safely to the absolute top of the viewport track */
   top: 0;
   left: 0;
-  z-index: 100; /* Ensures it stays stacked on top of your hero text and graphics */
-  background: transparent;
+  z-index: 1000; /* Increased to ensure it floats over browser window sliders and canvas icon bursts */
+  
+  /* ✨ GLASSMORPHISM BACKDROP: Gives a premium translucent dark mist blur effect as you scroll */
+  background-color: rgba(12, 12, 12, 0.75); 
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px); /* Safari support toggle line */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Ultra-thin accent border separating sections */
+  
+  transition: all 0.3s ease-in-out;
 }
+
 
 
 .nav-logo {

@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  
+  padding-top: 90px; /* Pushes content down to avoid navbar overlap */
   /* FIXED: Gradient now uses semi-transparent RGBA colors so the image shows through */
   background: radial-gradient(circle at center, rgba(42, 42, 42, 0.4) 0%, rgba(18, 18, 18, 0.9) 100%),
               url('../../assets/LandingpageHero.png');

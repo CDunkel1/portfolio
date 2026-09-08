@@ -12,7 +12,7 @@ function App() {
       {/* 1. Navbar stays pinned or overlaid at the very top */}
       <Navbar />
       
-      <main>
+      <main id="home">
         {/* 2. Hero: Introduction & dynamic greeting backdrop */}
         <Hero />
         
