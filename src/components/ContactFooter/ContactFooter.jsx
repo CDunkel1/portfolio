@@ -1,20 +1,36 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 import './ContactFooter.css';
 
 function ContactFooter() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
+  // 1. Keeps inputs open and active so you can type text into them freely
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // 2. Encodes data into standard URL string formatting so Netlify's server accepts it via AJAX
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Action script for handling submission (e.g., Formspree, Netlify forms, or backend API)
-    console.log("Form Submitted Safely:", formData);
-    alert("Thanks for reaching out! I will get back to you shortly.");
-    setFormData({ name: '', email: '', message: '' }); // Reset form metrics
+    
+    // 3. Submits data asynchronously to Netlify's processing framework
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "portfolio-contact", ...formData })
+    })
+      .then(() => {
+        alert("Thanks for reaching out! Your message was sent to Cheralyn.");
+        setFormData({ name: '', email: '', message: '' }); // Clear the form cards cleanly upon success
+      })
+      .catch(error => alert("Submission error: " + error));
   };
 
   return (
@@ -51,30 +67,46 @@ function ContactFooter() {
 
         {/* Right Side: Clean Form Workspace Container */}
         <div className="footer-form-side">
-         <form className="contact-form-card" method="POST" data-netlify="true" name="portfolio-contact">
-  {/* 🚀 Netlify requires this hidden input field to identify your React form during compilation */}
-  <input type="hidden" name="form-name" value="portfolio-contact" />
+          {/* 🚀 FIXED: Added the onSubmit listener to pipe execution into the AJAX router block */}
+          <form 
+            className="contact-form-card" 
+            onSubmit={handleSubmit}
+            name="portfolio-contact"
+            method="POST"
+            data-netlify="true"
+          >
+            {/* Netlify framework metadata tracking layer node hook */}
+            <input type="hidden" name="form-name" value="portfolio-contact" />
 
-  <h3>Send a Message</h3>
-  
-  <div className="form-group">
-    <label htmlFor="name">Your Name</label>
-    <input type="text" id="name" name="name" required placeholder="Cheralyn" />
-  </div>
+            <h3>Send a Message</h3>
+            
+            <div className="form-group">
+              <label htmlFor="name">Your Name</label>
+              {/* 🚀 FIXED: Re-linked value and onChange states so inputs function and allow typing */}
+              <input 
+                type="text" id="name" name="name" required 
+                value={formData.name} onChange={handleChange} placeholder="Cheralyn" 
+              />
+            </div>
 
-  <div className="form-group">
-    <label htmlFor="email">Email Address</label>
-    <input type="email" id="email" name="email" required placeholder="name@example.com" />
-  </div>
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input 
+                type="email" id="email" name="email" required 
+                value={formData.email} onChange={handleChange} placeholder="name@example.com" 
+              />
+            </div>
 
-  <div className="form-group">
-    <label htmlFor="message">Message</label>
-    <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
-  </div>
+            <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea 
+                id="message" name="message" rows="5" required 
+                value={formData.message} onChange={handleChange} placeholder="Tell me about your project..."
+              ></textarea>
+            </div>
 
-  <button type="submit" className="submit-form-btn">Send Message</button>
-</form>
-
+            <button type="submit" className="submit-form-btn">Send Message</button>
+          </form>
         </div>
 
       </div>
