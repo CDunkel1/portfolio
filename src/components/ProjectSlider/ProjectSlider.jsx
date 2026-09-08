@@ -3,7 +3,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import './ProjectSlider.css';
  
 import reelrushMockup from '../../assets/reelrush-mockup.png';  
-import realestateVideo from '../../assets/realestate-video.mp4'; 
+import realestateMockup from '../../assets/realestate-mockup.png'; 
 import inspiredSurfacesMockup from '../../assets/studio-mockup.png';
 const projectsData = [
   {
@@ -30,8 +30,8 @@ const projectsData = [
     tagline: "High-End Property Presentation",
     description: "A pixel-perfect, highly responsive media presentation website built from custom design wireframes with fluid responsive grid structures.",
     tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-    mediaType: "video",
-    mediaSource: realestateVideo,
+    mediaType: "image",
+    mediaSource: realestateMockup,
     liveLink: "https://4440vistadrive.netlify.app",
     githubLink: "https://github.com/CDunkel1/4440-vista-drive-website",
     role: "UI Engineer & Designer",
