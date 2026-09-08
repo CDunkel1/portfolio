@@ -60,8 +60,8 @@ function ContactFooter() {
           </div>
 
           <div className="footer-social-links">
-            <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub Repositories"><FaGithub /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn Network"><FaLinkedin /></a>
+            <a href="https://github.com/CDunkel1" target="_blank" rel="noreferrer" aria-label="GitHub Repositories"><FaGithub /></a>
+            <a href="https://www.linkedin.com/in/cheralyn-dunkel-b27b93171" target="_blank" rel="noreferrer" aria-label="LinkedIn Network"><FaLinkedin /></a>
           </div>
         </div>
 
