@@ -1,11 +1,10 @@
 
-
 import avatar from '../../assets/avatar.png'; // Import the avatar image
 import './Hero.css'; // Import the CSS file for styling
+
 function Hero() {
   return (
     <header className="hero-container">
-   
       <div className="hero-content-wrapper">
         {/* Left column: Text Content */}
         <div className="hero-text-side">

@@ -32,7 +32,11 @@
 }
 
 /* Individual browser container mockup specifications layout dimensions */
+/* ==========================================================================
+   🧱 THE BROWSER FRAME BASE - PREPARED FOR GLOW LAYERS
+   ========================================================================== */
 .browser-mockup-frame {
+  position: relative; /* CRITICAL: Acts as the anchor point for our hidden gradient */
   width: 100%;
   background-color: #121212;
   border: 1px solid #242424;
@@ -40,14 +44,55 @@
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: visible; /* FIXED: Changed from hidden to visible so the glow can spill out past the edges! */
   min-height: 520px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  
+  /* Smoothly scales the transition when hovering triggers */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
 }
 
+/* 
+  ✨ THE FIXED HIDDEN BACKDROP: 
+  This invisible gradient sits directly behind each project browser frame 
+*/
+.browser-mockup-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  z-index: -1; /* Stays safely layered behind your text/images */
+  
+  /* 🎨 THE ACCENT GRADIENT: A sleek, dark purple/indigo mist that matches your inspiration image */
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #2563eb 100%);
+  
+  /* Blurs the hard gradient edge into a soft light emission halo */
+  filter: blur(40px); 
+  
+  /* BASE STATE: Hidden completely by zeroing out opacity and scale initially */
+  opacity: 0;
+  transform: scale(0.95);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+              opacity 0.4s ease-in-out;
+}
+
+/* ==========================================================================
+   💥 ACTIVE MOUSE-OVER INTERACTION STATES
+   ========================================================================== */
 .browser-mockup-frame:hover {
-  transform: translateY(-4px);
-  border-color: #333333;
+  transform: translateY(-6px) scale(1.01); /* Subtle lift and expansion pop */
+  border-color: rgba(124, 58, 237, 0.4); /* Gives the frame border a matching purple highlight */
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+}
+
+/* 🚀 HOVER GLOW TRIGGER: Seamlessly expands and fades the background glow into view */
+.browser-mockup-frame:hover::before {
+  opacity: 0.35; /* Keeps it subtle and moody so it never overpowers your content */
+  transform: scale(1.03); /* Spreads slightly wider than the container edges */
 }
 
 /* OS UI Header System Window Line */
@@ -103,7 +148,7 @@
 
 .toggle-btn.active {
   background-color: #222222;
-  color: #ffffff;
+  color: rgba(124, 58, 237, 0.4);
 }
 
 .browser-content-display {
@@ -219,4 +264,118 @@
     text-align: right;
   }
   .projects-section { padding: 60px 5%; }
+}
+
+
+
+
+
+/* ==========================================================================
+   🌌 PERRY WANG WINDOW INSPIRATION ARCHITECTURE
+   ========================================================================== */
+.perry-inspiration-card {
+  background-color: #0d0d0d; /* Ultra-deep rich dark workspace back */
+  width: 100%;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 8%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.inspiration-content-overlay {
+  text-align: left;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bold typography scale matching the header layout exactly */
+.inspiration-main-heading {
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: #ffffff;
+  margin: 0 0 40px 0;
+  
+  /* Soft lighting gradient layer mapped right over the text characters */
+  background: linear-gradient(180deg, #ffffff 0%, #a3a3a3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sub-text clusters positioned elegantly to the lower right alignment grid */
+.inspiration-sub-details {
+  align-self: flex-end;
+  text-align: left;
+  max-width: 380px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.inspiration-role-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+}
+
+.inspiration-history-text {
+  font-size: 0.95rem;
+  color: #666666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Vertical Bouncing Arrow Loop Animation Engine
+   ========================================================================== */
+.inspiration-arrow-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.inspiration-bounce-arrow {
+  font-size: 1.8rem;
+  color: #444444;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  
+  /* 💥 TIMELINE: Endlessly loops a custom bounce profile every 1.6 seconds */
+  animation: sleekArrowBounce 1.6s infinite;
+}
+
+.inspiration-bounce-arrow:hover {
+  color: #ffffff; /* Brightens up clean when recruiter hovers it */
+}
+
+/* Precise gravity keyframe simulation handling acceleration decay profiles */
+@keyframes sleekArrowBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-12px); /* Highest peak deflection point */
+  }
+  60% {
+    transform: translateY(-6px);  /* Secondary structural catch apex */
+  }
+}
+
+/* Tablet screen font constraint overrides protection mappings */
+@media (max-width: 768px) {
+  .inspiration-main-heading {
+    font-size: 2.4rem;
+  }
+  .inspiration-sub-details {
+    align-self: flex-start;
+    max-width: 100%;
+  }
 }

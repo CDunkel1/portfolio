@@ -127,7 +127,7 @@
 .center-core-node {
   width: 65px;
   height: 65px;
-  background-color: #ffffff;
+  background-color: rgba(124, 58, 237, 0.4);
   color: #0c0c0c;
   border-radius: 50%;
   display: flex;

@@ -5,7 +5,27 @@ import './ProjectSlider.css';
 import reelrushMockup from '../../assets/reelrush-mockup.png';  
 import realestateMockup from '../../assets/realestate-mockup.png'; 
 import inspiredSurfacesMockup from '../../assets/studio-mockup.png';
+
 const projectsData = [
+  /* 🚀 ADDED: Project ID 0 acts as your unique text layout landing card */
+  {
+    id: 0,
+    title: "Overview",
+    tagline: "Design & Interaction Philosophy",
+    description: "My front-end development focus is centered around engineering high-fidelity web layouts that maximize user immersion and responsive control.",
+    tags: ["UI/UX Engineering", "Responsive Systems", "Design Fidelity"],
+    mediaType: "text",
+    mediaSource: "", 
+    liveLink: "#projects",
+    githubLink: "",
+    role: "Front-End Developer",
+    timeline: "Ongoing",
+    keyFeatures: [
+      "Translating complex high-fidelity prototypes into modern web architectures.",
+      "Structuring component-driven modular UI scopes.",
+      "Maintaining strict layout stability across complex device viewports."
+    ]
+  },
   {
     id: 1,
     title: "ReelRush Movie Platform",
@@ -14,8 +34,8 @@ const projectsData = [
     tags: ["React", "JavaScript", "CSS Modules", "REST API"],
     mediaType: "image",
     mediaSource: reelrushMockup, 
-    liveLink: "https://reelrushapp.netlify.app",
-    githubLink: "https://github.com/CDunkel1/movie-app",
+    liveLink: "https://netlify.app",
+    githubLink: "https://github.com",
     role: "Front-End Developer",
     timeline: "3 Weeks (Scrimba Career Path)",
     keyFeatures: [
@@ -32,8 +52,8 @@ const projectsData = [
     tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
     mediaType: "image",
     mediaSource: realestateMockup,
-    liveLink: "https://4440vistadrive.netlify.app",
-    githubLink: "https://github.com/CDunkel1/4440-vista-drive-website",
+    liveLink: "https://netlify.app",
+    githubLink: "https://github.com",
     role: "UI Engineer & Designer",
     timeline: "2 Weeks (Freelance Client)",
     keyFeatures: [
@@ -62,12 +82,19 @@ const projectsData = [
   }
 ];
 
-// Reusable card container isolates view states so clicking one card doesn't flip them all
 function ProjectRowCard({ project }) {
   const [activeView, setActiveView] = useState('work');
 
+  // Smoothly scrolls down to the ReelRush card (project-card-1) when clicking the arrow
+  const scrollToNextProject = () => {
+    const nextCard = document.getElementById('project-card-1');
+    if (nextCard) {
+      nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   return (
-    <div className="browser-mockup-frame">
+    <div className="browser-mockup-frame" id={`project-card-${project.id}`}>
       {/* macOS UI Title Bar Line */}
       <div className="browser-top-bar">
         <div className="system-dots">
@@ -97,16 +124,47 @@ function ProjectRowCard({ project }) {
       {/* Internal Display Viewport Screen */}
       <div className="browser-content-display">
         {activeView === 'work' ? (
-          /* WORK PANEL: Large-format full-scale media wrapper layout */
           <div className="view-panel work-panel-animate">
-            {project.mediaType === 'video' ? (
-              <video src={project.mediaSource} className="fullscreen-project-graphics" autoPlay loop muted playsInline />
+            
+            {/* 🚀 FIXED: The typography overlay is now locked strictly to card ID 0 */}
+            {project.id === 0 ? (
+              <div className="perry-inspiration-card">
+                <div className="inspiration-content-overlay">
+                  <h1 className="inspiration-main-heading">
+                    I craft products,<br />interactions & stories.
+                  </h1>
+                  
+                  <div className="inspiration-sub-details">
+                    <p className="inspiration-role-text">Front-End Developer. Based in Michigan.</p>
+                    <p className="inspiration-history-text">Specializing in React, UX Fidelity, and Responsive Systems.</p>
+                  </div>
+                  
+                  <div className="inspiration-arrow-wrapper">
+                    <div className="inspiration-bounce-arrow" onClick={scrollToNextProject}>↓</div>
+                  </div>
+                </div>
+              </div>
             ) : (
-              <img src={project.mediaSource} alt={`${project.title} Interface Preview`} className="fullscreen-project-graphics" />
+              /* 🚀 MEDIA RENDERING LAYER: Cards 1, 2, & 3 show image screenshots/videos */
+              <>
+                {project.mediaType === 'video' ? (
+                  <video 
+                    src={project.mediaSource} 
+                    className="fullscreen-project-graphics" 
+                    autoPlay loop muted playsInline 
+                  />
+                ) : (
+                  <img 
+                    src={project.mediaSource} 
+                    alt={`${project.title} Interface Preview`} 
+                    className="fullscreen-project-graphics" 
+                  />
+                )}
+              </>
             )}
           </div>
         ) : (
-          /* INFO PANEL: Complete wide split engineering layout view sheets */
+          /* INFO PANEL: Wide split engineering specifications details sheets */
           <div className="view-panel info-panel-animate">
             <div className="info-layout-grid">
               
@@ -114,7 +172,7 @@ function ProjectRowCard({ project }) {
               <div className="info-meta-column">
                 <span className="info-tagline">{project.tagline}</span>
                 <h3 className="info-display-title">{project.title}</h3>
-                <p className="info-summary-text">{project.description}</p>
+                <p className="info-summary-text={project.description}">{project.description}</p>
                 
                 <div className="project-stats-block">
                   <p><strong>Role:</strong> {project.role}</p>
@@ -125,11 +183,11 @@ function ProjectRowCard({ project }) {
                   <a href={project.liveLink} target="_blank" rel="noreferrer" className="action-anchor primary">
                     Launch App <FaExternalLinkAlt className="icon-gap" />
                   </a>
-                  {project.id !== 3 && (
-                  <a href={project.githubLink} target="_blank" rel="noreferrer" className="action-anchor secondary">
-                    Source Code <FaGithub />
-                  </a>
-                   )}
+                  {project.id !== 3 && project.id !== 0 && (
+                    <a href={project.githubLink} target="_blank" rel="noreferrer" className="action-anchor secondary">
+                      Source Code <FaGithub />
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -166,7 +224,7 @@ function ProjectSlider() {
         <div className="title-accent-line"></div>
       </div>
 
-      {/* 🚀 SINGLE-COLUMN VERTICAL GRID BLOCK TRACK */}
+      {/* SINGLE-COLUMN VERTICAL GRID BLOCK TRACK */}
       <div className="projects-vertical-column-layout">
         {projectsData.map((project) => (
           <ProjectRowCard key={project.id} project={project} />
