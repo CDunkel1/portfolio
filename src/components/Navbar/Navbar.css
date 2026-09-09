@@ -1,142 +1,175 @@
+/* ==========================================================================
+   MASTER GLASSMORPHISM FIXED BAR LAYOUT
+   ========================================================================== */
+.glass-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  z-index: 9999; /* Proudly sits right underneath your custom glow cursor layer */
+  
+  /* ── HIGH-END FROSTED GLASS ENGINE ── */
+  background: rgba(14, 14, 16, 0.65); 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  
+  /* Blurs your slow text gradient animations and 3D graphics rolling beneath it */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Safari engine fallback standard safeguard */
+  
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-/*-------------------------------------------------
-Navbar Styles
------------------------------------------------- */
-
-.hero-nav {
+/* Max Width Limit Wrapper Alignment Gutter Box */
+.nav-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 6%; /* Matches your hero structural workspace grid boundaries perfectly */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 8%; /* Adjusted padding slightly for a tighter, sleeker scroll profile */
-  width: 100%;
-  box-sizing: border-box;
-  
-  /* 🔄 THE FIXED STICKY FIX */
-  position: fixed; /* Pins the layout safely to the absolute top of the viewport track */
-  top: 0;
-  left: 0;
-  z-index: 1000; /* Increased to ensure it floats over browser window sliders and canvas icon bursts */
-  
-  /* ✨ GLASSMORPHISM BACKDROP: Gives a premium translucent dark mist blur effect as you scroll */
-  background-color: rgba(12, 12, 12, 0.75); 
-  backdrop-filter: blur(12px); 
-  -webkit-backdrop-filter: blur(12px); /* Safari support toggle line */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Ultra-thin accent border separating sections */
-  
-  transition: all 0.3s ease-in-out;
+  position: relative;
 }
 
-
-
+/* ==========================================================================
+   BRAND TEXT & ELEMENTS
+   ========================================================================== */
 .nav-logo {
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: 0.5px;
+  font-family: 'Montserrat', sans-serif;
   color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
-/* Wrapper linking pages and social layout together */
+.logo-dot {
+  color: #ff0099; /* Matches your pink-orange ambient design palette accents */
+}
+
+/* ==========================================================================
+   DESKTOP VIEW CONTAINER ARCHITECTURE
+   ========================================================================== */
 .nav-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 4rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 3rem; /* Spacious premium navigation spacing split lanes */
 }
 
 .nav-links a {
-  color: #cccccc;
+  font-family: 'Inter', sans-serif;
+  color: #a1a1aa;
   text-decoration: none;
-  margin-left: 25px;
+  font-weight: 500;
   font-size: 0.95rem;
-  transition: color 0.2s ease-in-out;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
+/* Subtle link slide-up and orange hue highlight shift on hover */
 .nav-links a:hover {
-  color: #ffffff;
+  color: #ff7b00;
 }
 
-/* Clean, crisp SVGs handled via native text font mechanics */
+/* ==========================================================================
+   SOCIALS VECTOR SCALING ICONS
+   ========================================================================== */
 .nav-socials {
-  margin-left: 35px;
   display: flex;
-  gap: 18px;
-  font-size: 1.2rem;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto; /* Pushes vector links hard against the right wall border line */
 }
 
 .nav-socials a {
-  color: #ffffff;
-  transition: transform 0.2s, opacity 0.2s;
+  color: #a1a1aa;
+  font-size: 1.25rem; /* Crisply balanced vector bounding footprint */
   display: flex;
   align-items: center;
+  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-socials a:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
+  color: #ff0099;
+  transform: translateY(-2px);
 }
 
-/* Hidden by default on large desktop breakpoints */
+/* Mobile Icon Trigger Switch hidden by default on desktop workspaces */
 .nav-menu-icon {
   display: none;
-  font-size: 1.5rem;
   color: #ffffff;
-  cursor: pointer;
-  z-index: 101; /* Stays fixed cleanly on top of mobile layouts */
+  font-size: 1.5rem;
+  cursor: none !important; /* Hides system arrow since your custom glow is active */
+  z-index: 10000;
 }
 
-/* Responsive Media Queries (Mobile & Small Viewports) */
+/* ==========================================================================
+   RESPONSIVE MOBILE SLIDER BREAKPOINT CONSTRAINTS
+   ========================================================================== */
 @media (max-width: 768px) {
+  .nav-wrapper {
+    padding: 0 24px;
+  }
+
   .nav-menu-icon {
-    display: block;
+    display: block; /* Reveal responsive toggle trigger vector icons */
   }
 
-  /* Morphing desktop layout wrapper into a slide-down layout block */
+  /* Transform link container box into an absolute-positioned vertical drop menu sheet */
   .nav-container {
-    position: absolute;
-    top: -400px; /* Hidden above view by default */
-    left: 0;
-    width: 100%;
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden off-screen right by default */
+    width: 75%;
+    max-width: 320px;
+    height: 100vh;
+    background: rgba(14, 14, 16, 0.94); /* Darker backdrop fill for better readability */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    
     flex-direction: column;
-    gap: 30px;
-    padding: 40px 0;
-    transition: all 0.4s ease-in-out;
-    opacity: 0;
-    pointer-events: none;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 80px 40px;
+    margin-left: 0;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 9998;
   }
 
-  /* Triggers view smoothly via our active React state dynamic class hook */
+  /* Slide menu canvas box seamlessly inward on trigger state updates */
   .nav-container.active {
-    top: 90px; /* Fits directly beneath logo padding header */
-    opacity: 1;
-    pointer-events: auto;
+    right: 0;
   }
 
   .nav-links {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    gap: 2.5rem;
     width: 100%;
+    text-align: center;
   }
 
   .nav-links a {
-    margin-left: 0;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    display: block;
+    width: 100%;
   }
 
   .nav-socials {
-    margin-left: 0;
+    margin-left: 0; /* Clear desktop right overrides */
     justify-content: center;
+    width: 100%;
   }
 }
-
-.hero-nav {
-  background: transparent; /* Makes navbar float perfectly over global gradient */
-}
-
-@media (max-width: 768px) {
-  .nav-container {
-    /* Uses a matching dark blur overlay for your mobile slide-down menu */
-    background-color: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(10px);
-  }
-}
-

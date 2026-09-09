@@ -51,17 +51,24 @@ html, body, a, button, input, select, textarea, [role="button"] {
    INTERACTIVE LINKS & ACTION HOVERS (PULSING EMISSIVE WAVE)
    ========================================================================== */
 /* When hovering links, buttons, or project items, the glow swells up and burns brighter */
+/* ==========================================================================
+   INTERACTIVE LINKS & ACTION HOVERS (PULSING EMISSIVE WAVE)
+   ========================================================================== */
 .glowing-cursor.cursor-expand {
   width: 240px;
   height: 240px;
   margin-left: -120px;
   margin-top: -120px;
   
+  /* ── THE CRITICAL FIX: Ensure clicks pierce through the expanded glow ── */
+  pointer-events: none !important;
+  
   background: radial-gradient(
     circle, 
-    rgba(255, 0, 153, 0.35) 0%,   /* Intensified pink warmth */
+    rgba(255, 0, 153, 0.35) 0%,   
     rgba(255, 106, 0, 0.20) 45%,  
     rgba(255, 106, 0, 0.05) 75%,
     transparent 100%
   );
 }
+

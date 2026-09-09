@@ -29,13 +29,13 @@ function CustomCursor() {
   }, []);
 
   return (
-    <div 
-      className={`glowing-cursor ${isHovered ? 'cursor-expand' : ''}`}
-      style={{
-        transform: `translate3d(${position.x}px, ${position.y}px, 0)`
-      }}
-    />
-  );
+  <div 
+    className={`glowing-cursor ${isHovered ? 'cursor-expand' : ''}`}
+    style={{
+      transform: `translate3d(${position.x}px, ${position.y}px, 0)`
+    }}
+  />
+);
 }
 
 export default CustomCursor;
