@@ -1,16 +1,70 @@
-# React + Vite
+# 🌐 Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A modern, fully-featured personal portfolio website built with React and Vite to showcase my software engineering projects, technical skill set, and professional journey.
 
-Currently, two official plugins are available:
+[![Live Demo](https://shields.io)](https://cheralynkdunkel.netlify.app)
+[![GitHub Repository](https://shields.io)](https://github.com/CDunkel1/portfolio)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🎯 Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This website serves as my primary professional hub for potential employers and collaborators. It features a complete end-to-end user interface designed from scratch to showcase frontend development capabilities, clean UI architecture, and modular React engineering.
 
-## Expanding the ESLint configuration
+### 📱 Core UI Sections Included
+* **Hero Section:** An engaging, responsive landing layout using optimized background styling and prominent call-to-actions.
+* **About Me:** A professional summary outlining my background, engineering philosophy, and career objectives.
+* **Projects Matrix:** A dynamic showcase of my web applications featuring live links, source code repositories, and structural breakdowns of tools used.
+* **Skills Inventory:** A categorized breakdown of my technical proficiency spanning frontend languages, frameworks, and developer workflows.
+* **Contact Hub:** An accessible interface allowing hiring managers and clients to connect with me directly.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### ⚡ Technical Features
+* **Fluid Responsive Design:** Implemented layout techniques (CSS Flexbox and Grid) to guarantee a flawless experience across mobile, tablet, and desktop viewports.
+* **Optimized Performance:** Built on Vite for near-instant Hot Module Replacement (HMR) and lightweight production bundles.
+* **Modular Component Architecture:** Organizes UI elements into reusable, isolated React components to maintain an organized, scalable, and DRY (Don't Repeat Yourself) codebase.
+
+## 🛠️ Tech Stack
+
+* **Frontend Framework:** React 18
+* **Build Tool & Bundler:** Vite
+* **Styling & Layout:** Semantic HTML5, Custom CSS
+* **Deployment & Hosting:** Netlify (Continuous Deployment via GitHub triggers)
+
+## 🚀 Getting Started
+
+Follow these instructions to spin up a local copy of the project on your machine for development and code inspection.
+
+### Prerequisites
+Make sure you have Node.js installed on your system.
+* [Node.js](https://nodejs.org) (v18 or higher recommended)
+
+### Local Setup & Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com.git
+   ```
+
+2. **Navigate into the project directory:**
+   ```bash
+   cd portfolio
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Start the local development server:**
+   ```bash
+   npm run dev
+   ```
+   Open your browser and navigate to the address shown in your terminal (typically `http://localhost:5173`).
+
+## 🧠 Technical Takeaways & Successes
+* **Full UI Delivery:** Successfully designed and mapped out all functional sections of a complete web portfolio, keeping user navigation intuitive and scannable.
+* **Production Build Management:** Leveraged Vite's compilation features to bundle code efficiently, ensuring high-speed delivery on initial page load.
+* **Component-Driven UI:** Deepened knowledge of state orchestration and prop delegation across separate layout layers.
+
+## 📄 License
+This project is open-source and available under the MIT License.
