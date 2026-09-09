@@ -3,6 +3,7 @@
   padding: 100px 8%;
   box-sizing: border-box;
   color: #ffffff;
+ 
 }
 
 .projects-section-title {
@@ -51,6 +52,7 @@
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
               border-color 0.4s ease,
               box-shadow 0.4s ease;
+  
 }
 
 /* 
@@ -64,7 +66,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 14px;
+  
   z-index: -1; /* Stays safely layered behind your text/images */
   
   /* 🎨 THE ACCENT GRADIENT: A sleek, dark purple/indigo mist that matches your inspiration image */
@@ -85,7 +87,7 @@
    ========================================================================== */
 .browser-mockup-frame:hover {
   transform: translateY(-6px) scale(1.01); /* Subtle lift and expansion pop */
-  border-color: rgba(124, 58, 237, 0.4); /* Gives the frame border a matching purple highlight */
+  border-color: rgba(237, 58, 186, 0.4); /* Gives the frame border a matching purple highlight */
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
 }
 
@@ -148,7 +150,7 @@
 
 .toggle-btn.active {
   background-color: #222222;
-  color: rgba(124, 58, 237, 0.4);
+  color:#ff0099e0;
 }
 
 .browser-content-display {
@@ -158,7 +160,7 @@
   width: 100%;
 }
 
-.view-panel { width: 100%; height: 100%; }
+.view-panel { width: 100%; height: 100%;}
 
 /* Scale graphics cleanly across full wide mockup box layout lines bounds */
 .fullscreen-project-graphics {
@@ -167,6 +169,7 @@
   max-width: 100%;
   object-fit: contain;
   display: block;
+  
 }
 
 /* WIDESCREEN INFO VIEW PANEL SPLIT */
@@ -283,6 +286,7 @@
   padding: 60px 8%;
   box-sizing: border-box;
   position: relative;
+  
 }
 
 .inspiration-content-overlay {

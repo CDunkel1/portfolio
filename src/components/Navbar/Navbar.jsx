@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaGithub, FaLinkedin, FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 
+ // Import the CSS file for styling
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
