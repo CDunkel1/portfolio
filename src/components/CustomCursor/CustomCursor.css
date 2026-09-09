@@ -1,0 +1,67 @@
+/* ==========================================================================
+   GLOBAL CURSOR CONSTRAINTS & RESET
+   ========================================================================== */
+/* Erase the default harsh operating system arrow completely across all tags */
+html, body, a, button, input, select, textarea, [role="button"] {
+  cursor: none !important;
+}
+
+/* ==========================================================================
+   PURE AMBIENT GLOW MOUSE TRAIL
+   ========================================================================== */
+.glowing-cursor {
+  /* 1. EXPAND FOOTPRINT: Swapped from 20px to a massive 160px wide light aura */
+  width: 160px;
+  height: 160px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  /* 2. OFFSET RADIUS: Centering the massive nebula anchor point perfectly under the coordinate tip */
+  margin-left: -80px;
+  margin-top: -80px;
+  
+  /* 3. ATMOSPHERIC FILL: Soft gradient with a low opacity center so it's a true haze, not a solid dot */
+  background: radial-gradient(
+    circle, 
+    rgba(255, 0, 153, 0.25) 0%,   /* Low opacity vivid pink center */
+    rgba(255, 106, 0, 0.12) 40%,  /* Transitions into smooth, glowing amber orange */
+    rgba(255, 0, 153, 0.03) 70%,  /* Feathered outer ring */
+    transparent 100%
+  );
+  
+  border-radius: 50%;
+  pointer-events: none; /* Allows pointer clicks to pierce straight through the aura layer safely */
+  z-index: 999999;      /* Forces the glow track to sit proudly on top of all page layers */
+  
+  /* Mix blend mode allows the colors to dynamically react, tinting text underneath beautifully */
+  mix-blend-mode: screen; 
+  
+  /* Hardware acceleration routing paths */
+  will-change: transform;
+  
+  /* Smooth transitions when easing onto link headers */
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              margin 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.4s ease;
+}
+
+/* ==========================================================================
+   INTERACTIVE LINKS & ACTION HOVERS (PULSING EMISSIVE WAVE)
+   ========================================================================== */
+/* When hovering links, buttons, or project items, the glow swells up and burns brighter */
+.glowing-cursor.cursor-expand {
+  width: 240px;
+  height: 240px;
+  margin-left: -120px;
+  margin-top: -120px;
+  
+  background: radial-gradient(
+    circle, 
+    rgba(255, 0, 153, 0.35) 0%,   /* Intensified pink warmth */
+    rgba(255, 106, 0, 0.20) 45%,  
+    rgba(255, 106, 0, 0.05) 75%,
+    transparent 100%
+  );
+}

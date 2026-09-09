@@ -4,6 +4,8 @@ import Navbar from './components/Navbar/Navbar';
 import About from './components/About/About';
 import "./index.css"; // Import the CSS file for styling
 import ContactFooter from './components/ContactFooter/ContactFooter'
+import CustomCursor from './components/CustomCursor/CustomCursor';
+
 function App() {
   
 
@@ -13,6 +15,7 @@ function App() {
       <Navbar />
       
       <main id="home">
+        <CustomCursor />
         {/* 2. Hero: Introduction & dynamic greeting backdrop */}
         <Hero />
         

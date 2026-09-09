@@ -23,3 +23,30 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 20px; /* 🎯 Tells the automatic scroll anchor mechanics to stop exactly 90px before the section! */
 }
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #0d0e15; /* Dark background makes the glow pop */
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   GLOBAL VIEWPORT UNBLOCKER (FIXES WHOLE PAGE SCROLLING)
+   ========================================================================== */
+html, 
+body, 
+#root, 
+.App {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  
+  /* FORCE CRITICAL RULES: Removes strict height freezes across your React app */
+  height: auto !important; 
+  min-height: 100vh;
+  
+  /* Re-opens the master vertical viewport scroll timeline paths completely */
+  overflow-x: hidden !important; /* Safety grid protection against mobile side-wobbling */
+  overflow-y: visible !important; /* Ensures the page can always scroll down infinitely */
+}
