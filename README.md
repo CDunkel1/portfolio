@@ -2,8 +2,8 @@
 
 > A modern, fully-featured personal portfolio website built with React and Vite to showcase my software engineering projects, technical skill set, and professional journey.
 
-[![Live Demo](https://cheralynkdunkel.netlify.app)
-[![GitHub Repository](https://github.com/CDunkel1/portfolio/edit/main)
+[![Live Demo](https://shields.io)](https://cheralynkdunkel.netlify.app)
+[![GitHub Repository](https://shields.io)](https://github.com/CDunkel1/portfolio)
 
 ---
 
