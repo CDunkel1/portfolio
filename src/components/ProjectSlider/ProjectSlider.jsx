@@ -219,10 +219,7 @@ function ProjectRowCard({ project }) {
 function ProjectSlider() {
   return (
     <section className="projects-section" id="projects">
-      <div className="projects-section-title">
-        <h2>Selected Work</h2>
-        <div className="title-accent-line"></div>
-      </div>
+      
 
       {/* SINGLE-COLUMN VERTICAL GRID BLOCK TRACK */}
       <div className="projects-vertical-column-layout">
