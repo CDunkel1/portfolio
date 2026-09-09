@@ -127,7 +127,7 @@
 .center-core-node {
   width: 65px;
   height: 65px;
-  background-color: rgba(124, 58, 237, 0.4);
+  background-image:  radial-gradient(circle, #ff0099, #ef98469d);
   color: #0c0c0c;
   border-radius: 50%;
   display: flex;

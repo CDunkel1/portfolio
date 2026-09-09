@@ -1,5 +1,5 @@
 
-import avatar from '../../assets/avatar.png'; // Import the avatar image
+import HeroImg from '../../assets/hero-img.png'; // Your updated pink 3D asset file
 import './Hero.css'; // Import the CSS file for styling
 
 function Hero() {
@@ -9,19 +9,19 @@ function Hero() {
         {/* Left column: Text Content */}
         <div className="hero-text-side">
           <p className="hero-greeting">Hi, I'm Cheralyn,</p>
-          <h1 className="hero-title">FRONTEND<br />DEVELOPER</h1>
+          <h1 className="hero-title text-animated-gradient">FRONTEND<br />DEVELOPER</h1>
           <p className="hero-description">
             Responsive By Nature, Creative by Code
           </p>
           <a href="#projects" className="hero-link">View My Projects</a>
         </div>
 
-        {/* Right column: Character Image */}
+        {/* Right column: Edge-floating Visual Asset */}
         <div className="hero-image-side">
           <img 
-            src={avatar} 
-            alt="Cheralyn Avatar" 
-            className="hero-avatar"
+            src={HeroImg} 
+            alt="Abstract 3D Pink Accent Artwork" 
+            className="hero-floating-asset"
           />
         </div>
       </div>

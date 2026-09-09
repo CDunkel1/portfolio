@@ -1,183 +1,226 @@
+/* ==========================================================================
+   Hero Layout Container & Grid Config (Completely Edge Aligned)
+   ========================================================================== */
+/* ==========================================================================
+   Hero Layout Container & Grid Config
+   ========================================================================== */
 .hero-container {
-  position: relative;
   width: 100%;
   min-height: 100vh;
-  padding-top: 90px; /* Space buffer beneath your sticky navbar */
-  box-sizing: border-box;
+  background-color: #0e0e10;
+  background-image: radial-gradient(circle at 50% 50%, rgba(35, 20, 15, 0.4), #0e0e10); /* Centered light glow tint */
   display: flex;
-  align-items: center;
+  align-items: center;      /* Centers items vertically */
+  justify-content: center;   /* Centers items horizontally */
+  padding: 0 6%;             /* Equalized padding splits grid cleanly down the middle */
   overflow: hidden;
-  
-  /* 🌌 FIXED: Restored your watercolor texture image overlay here */
-  background: radial-gradient(circle at center, rgba(42, 42, 42, 0.2) 0%, rgba(18, 18, 18, 0.6) 100%),
-              url('../../assets/LandingpageHero.png');
-  background-size: cover;
-  background-position: center;
+  position: relative;
 }
 
 .hero-content-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 8%;
   width: 100%;
-  box-sizing: border-box;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50/50 balance evenly centers the layout division */
+  align-items: center;            /* Enforces strict grid row vertical layout centering */
+  gap: 4rem;
 }
 
+
 /* ==========================================================================
-   🎬 LEFT COLUMN: STAGGERED ENTRANCE EFFECTS
+   Left Side Elements & 3D Typography
    ========================================================================== */
 .hero-text-side {
-  flex: 1;
-  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
 }
 
 .hero-greeting {
-  font-size: 1.5rem;
-  color: #cccccc;
-  margin-bottom: 12px;
-  
-  /* Slide-reveal on load */
-  opacity: 0;
-  animation: slideUpFade 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-.hero-title {
-  font-size: 4.5rem;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: 1px;
-  margin: 0 0 25px 0;
-  color: #ffffff;
-  
-  /* Triggers immediately after greeting with a slightly longer glide path */
-  opacity: 0;
-  animation: slideUpFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.15s forwards;
+  font-family: 'Inter', sans-serif;
+  color: #a1a1aa;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
 }
 
 .hero-description {
-  font-size: 1.1rem;
-  color: #aaaaaa;
-  line-height: 1.6;
-  margin-bottom: 35px;
-  
-  /* Triggers after headline finishes moving */
-  opacity: 0;
-  animation: slideUpFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+  color: #71717a;
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
 }
 
-/* ==========================================================================
-   🎯 BUTTON LINK HOVER ENHANCEMENTS
-   ========================================================================== */
 .hero-link {
+  align-self: flex-start;
   color: #ffffff;
-  font-weight: 700;
-  font-size: 1.1rem;
   text-decoration: none;
-  padding-bottom: 5px;
-  display: inline-block;
-  position: relative;
-  
-  opacity: 0;
-  animation: slideUpFade 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.45s forwards;
-  
-  /* Nudges the button text seamlessly when hovered */
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-              opacity 0.2s ease;
-}
-
-/* Creating an elegant animated underline bar beneath your text buttons */
-.hero-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color:rgba(124, 58, 237, 0.4) ;
-  
-  /* Initial state: hidden by being flattened horizontally to zero length */
-  transform: scaleX(0);
-  transform-origin: left; /* Forces left-to-right fluid expansion line */
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-bottom: 2px solid #ff0099;
+  padding-bottom: 4px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .hero-link:hover {
-  transform: translateX(6px); /* Nudges button text forward slightly */
+  color: #ff7b00;
+  border-color: #ff7b00;
+  transform: translateY(-2px);
 }
 
-.hero-link:hover::after {
-  transform: scaleX(1); /* Smoothly glides the line underline to full text length */
+.hero-title  {
+   font-size: 5rem;
+   font-weight: 800;
+   letter-spacing: -0.02em;
 }
 
+/* Your original pink-to-orange moving text gradient */
+.text-animated-gradient  {
+   background: linear-gradient(90deg, #ff0099, rgb(246, 92, 146), rgb(239, 152, 70), rgb(241, 158, 99)) 0% 0% / 300% 100%;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+   animation: 4s linear infinite gradientMove;
+}
+
+@keyframes gradientMove  {
+  0%  {
+   background-position: 0% 50%;
+  }
+  100%  {
+   background-position: 300% 50%;
+  }
+}
 
 /* ==========================================================================
-   🚀 RIGHT COLUMN: THE BACKDROP & MOTION STRUCTURES
+   Right Side Asset Layout & Hardware Accelerated Float Animations
    ========================================================================== */
 .hero-image-side {
-  flex: 1;
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Locks the image frame right up to the outermost screen margin */
   align-items: center;
-  
-  /* 💡 FIXED: Combined both style declarations to prevent properties from getting wiped out */
-  opacity: 0;
-  animation: slideInRight 1s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards,
-             smoothFloat 4.5s ease-in-out infinite 1.2s; /* Float triggers right after it finishes sliding in */
 }
 
-.hero-avatar {
-  max-width: 90%;
-  max-height: 75vh;
+.hero-floating-asset {
+  max-width: 125%; /* Slightly bleeds outward over its layout slot boundary line for a modern depth feel */
+  height: auto;
   object-fit: contain;
-  display: block;
-  cursor: pointer;
+  margin-right: -12%; /* Deliberately crops perfectly against the screen boundary edge */
   
-  /* Baseline crisp rendering shadow position */
-  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
-  
-  /* Pipes all scale and shadow alterations onto a smooth 0.3-second transition track */
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-              filter 0.3s ease;
+  /* Triggers native GPU computing paths for stutter-free 60fps movement loops */
+  animation: liquidFloat 6.5s ease-in-out infinite;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  will-change: transform;
 }
 
-/* 💥 AVATAR HOVER STATE: Smoothly lifts forward without locking your float loop */
-.hero-avatar:hover {
-  transform: scale(1.05); /* Clean 5% expansion pop */
-  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.7)); /* Intense depth shadow shift */
+/* Enhances depth dynamically when mouse pointers wander over the artwork zone */
+.hero-floating-asset:hover {
+  transform: scale(1.04) rotate(2deg) translate3d(-5px, -8px, 0);
+  filter: drop-shadow(-10px 15px 35px rgba(255, 0, 123, 0.35));
 }
 
+/* High-Performance Micro-Movement Floating Routine Frame Definitions */
+@keyframes liquidFloat {
+  0% {
+    transform: translate3d(0, 0px, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-8px, -22px, 0) rotate(-1.5deg); /* Keeps movements sharp and professional */
+  }
+  100% {
+    transform: translate3d(0, 0px, 0) rotate(0deg);
+  }
+}
 
 /* ==========================================================================
-   🌌 KEYFRAMES PLATFORM RESETS
+   Optimized Responsive System for Tablet & Mobile Viewports
    ========================================================================== */
-@keyframes slideUpFade {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInRight {
-  from { 
-    opacity: 0; 
-    transform: translateX(40px); 
+@media (max-width: 1024px) {
+  .hero-container {
+    /* ── FIX: Left, Top, and Bottom padding are fine, but right padding MUST be 0 ── */
+    padding: 80px 0px 0px 24px;  
+    align-items: flex-end;       
+    min-height: 100vh;
   }
-  to { 
-    opacity: 1; 
-    transform: translateX(0); 
+  
+  .hero-content-wrapper {
+    grid-template-columns: 1fr;  
+    text-align: center;
+    gap: 1.5rem;                 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+  }
+  
+  .hero-text-side {
+    align-items: center;
+    margin-top: auto;            
+    padding-top: 40px;
+    /* Extra cushion to keep text centered now that container right padding is 0 */
+    padding-right: 24px; 
+    z-index: 10;
+  }
+  
+  .hero-link {
+    align-self: center;
+  }
+  
+  .hero-image-side {
+    /* Forces alignment layout block to snap hard right against the column border */
+    justify-content: flex-end; 
+    align-items: flex-end;       
+    width: 100%;
+    margin-top: auto;            
+  }
+  
+  .hero-floating-asset {
+    max-width: 55%;              
+    height: auto;
+    /* ── FIX: Pulls image frame completely flush right over container lines ── */
+    margin-right: 0px;           
+    margin-bottom: -5px;         
+    animation: liquidFloatMobile 5s ease-in-out infinite;
   }
 }
 
-/* Continuous background floating loop tracking height only */
-@keyframes smoothFloat {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
+/* Smart phones viewport handling */
+@media (max-width: 576px) {
+  .hero-container {
+    /* ── FIX: Maintain strict 0 right boundary spacing on mobile panels ── */
+    padding: 60px 0px 0px 16px;
+  }
+
+  .hero-text-side {
+    padding-right: 16px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 3.2rem); 
+  }
+
+  .hero-floating-asset {
+    max-width: 75%;              
+    /* Keeps image completely wall-locked as screen transitions narrower */
+    margin-right: 0px;           
+    margin-bottom: -2px;
+  }
 }
 
-/* Responsive breakdowns rulesets stay standard... */
-@media (max-width: 968px) {
-  .hero-content-wrapper { flex-direction: column; text-align: center; padding-top: 40px; gap: 40px; }
-  .hero-image-side { justify-content: center; width: 100%; }
-  .hero-avatar { max-width: 75%; }
-  .hero-title { font-size: 3rem; }
+/* ── HIGH PERFORMANCE MOBILE MOTION TRACKS ── */
+@keyframes liquidFloatMobile {
+  0% { 
+    transform: translate3d(0, 0, 0) rotate(0deg); 
+  }
+  50% { 
+    /* Slightly shifted tracking vectors so floating does not clip off-screen */
+    transform: translate3d(-4px, -12px, 0) rotate(0.5deg); 
+  }
+  100% { 
+    transform: translate3d(0, 0, 0) rotate(0deg); 
+  }
 }

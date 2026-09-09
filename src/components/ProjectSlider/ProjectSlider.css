@@ -68,7 +68,7 @@
   z-index: -1; /* Stays safely layered behind your text/images */
   
   /* 🎨 THE ACCENT GRADIENT: A sleek, dark purple/indigo mist that matches your inspiration image */
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #2563eb 100%);
+  background: linear-gradient(135deg, #ff007b 0%, #ff007b96 50%, #eb8525 100%);
   
   /* Blurs the hard gradient edge into a soft light emission halo */
   filter: blur(40px); 
