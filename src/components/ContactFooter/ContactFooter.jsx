@@ -53,10 +53,6 @@ function ContactFooter() {
               <FaEnvelope className="channel-icon" />
               <a href="mailto:cheralyndunkel@gmail.com">cheralyndunkel@gmail.com</a>
             </div>
-            <div className="channel-item">
-              <FaPhoneAlt className="channel-icon" />
-              <a href="tel:2314978675">(231) 497-8675</a>
-            </div>
           </div>
 
           <div className="footer-social-links">
