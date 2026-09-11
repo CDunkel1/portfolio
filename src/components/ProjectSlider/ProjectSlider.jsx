@@ -131,7 +131,7 @@ function ProjectRowCard({ project }) {
               <div className="perry-inspiration-card">
                 <div className="inspiration-content-overlay">
                   <h1 className="inspiration-main-heading">
-                    I craft products,<br />interactions & stories.
+                    Building<br />Interactive Experiences.
                   </h1>
                   
                   <div className="inspiration-sub-details">
