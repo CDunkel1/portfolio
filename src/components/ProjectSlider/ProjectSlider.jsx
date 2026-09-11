@@ -34,8 +34,8 @@ const projectsData = [
     tags: ["React", "JavaScript", "CSS Modules", "REST API"],
     mediaType: "image",
     mediaSource: reelrushMockup, 
-    liveLink: "https://netlify.app",
-    githubLink: "https://github.com",
+    liveLink: "https://reelrushapp.netlify.app",
+    githubLink: "https://github.com/CDunkel1/portfolio",
     role: "Front-End Developer",
     timeline: "3 Weeks (Scrimba Career Path)",
     keyFeatures: [
@@ -52,8 +52,8 @@ const projectsData = [
     tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
     mediaType: "image",
     mediaSource: realestateMockup,
-    liveLink: "https://netlify.app",
-    githubLink: "https://github.com",
+    liveLink: "https://4440vistadrive.netlify.app",
+    githubLink: "https://github.com/CDunkel1/4440-vista-drive-website",
     role: "UI Engineer & Designer",
     timeline: "2 Weeks (Freelance Client)",
     keyFeatures: [
@@ -71,7 +71,7 @@ const projectsData = [
     mediaType: "image",
     mediaSource: inspiredSurfacesMockup, 
     liveLink: "https://inspiredsurfaces.net",
-    githubLink: "",
+    githubLink: "#",
     role: "Front-End Intern",
     timeline: "4 Weeks (Corporate Internship)",
     keyFeatures: [
